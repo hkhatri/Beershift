@@ -1,3 +1,15 @@
+/*
+ * 
+ * 
+ * Sample Servlet to respond on the post call
+ * on the index.jsp and show results in the console
+ * 
+ * Author					Modified
+ * Hilay Khatri				05-31-2012
+ * 
+ * 
+ */
+
 package org.sample.servlet;
 
 import java.io.IOException;
@@ -23,7 +35,7 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String userID, password;
+		String userID, password, msg;
 		
 		userID = request.getParameter("userID");
 		password = request.getParameter("password");
@@ -32,7 +44,10 @@ public class LoginServlet extends HttpServlet {
 		LoginService ls = new LoginService();
 		
 		MongoApp ma = new MongoApp();
-		ma.conn(userID, password);
+		ma.insert(userID, password);
+		msg = ma.display(userID);
+		
+		System.out.println(msg);
 		
 		boolean result = ls.authencticate(userID, password);
 		
