@@ -2,7 +2,7 @@
  * 
  * 
  * Sample MongoDB Backend to insert data into database
- * and retrieve on the basis on the username provided
+ * and retrieve on the basis of username provided
  * 
  * Author					Modified
  * Hilay Khatri				05-31-2012
